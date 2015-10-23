@@ -1,0 +1,41 @@
+{
+  "name": "Fly Here",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "permissions": [
+    "tabs",
+    "geolocation",
+    "https://api.cloudsightapi.com/*",
+    "https://maps.googleapis.com/*",
+    "contextMenus"
+  ],
+  "background": {
+    "page": "background/background.html"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "vendors/bootstrap/css/bootstrap.min.css",
+        "vendors/bootstrap/css/bootstrap-theme.min.css",
+        "cs/style.css"
+      ],
+      "js": [
+        "vendors/mustache.min.js",
+        "vendors/require.js",
+        "vendors/require-cs.js",
+        "cs/main.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "vendors/*",
+    "cs/*",
+    "models/*",
+    "collections/*",
+    "views/*"
+  ]
+}
